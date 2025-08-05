@@ -1,27 +1,50 @@
 .home-container {
-  max-width: 800px;
-  margin: 50px auto;
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px; 
 }
 
-.movie-item {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+.movie-card {
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fefefe;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.movie-item h3 {
-  margin: 0;
+.movie-title {
+  margin: 0 0 8px 0;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
-.movie-item p {
-  margin: 5px 0;
+.movie-description {
+  margin: 0 0 8px 0;
+  color: #555;
 }
 
-.movie-item a {
+.edit-link {
   color: #0077cc;
+  font-weight: 500;
   text-decoration: none;
 }
 
-.movie-item a:hover {
+.edit-link:hover {
   text-decoration: underline;
+}
+
+.delete-button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #a71d2a;
 }

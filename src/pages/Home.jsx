@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 import './Home.css';
 
-function Home({ movies }) {
+function Home({ movies, onDelete }) {
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="home-container">
-      <h2>Movie List</h2>
       {movies.map(movie => (
         <div key={movie.id} className="movie-card">
-          <h3>{movie.title}</h3>
-          <p>{movie.description}</p>
-          <Link to={`/edit/${movie.id}`} className="edit-link">Edit</Link>
+          <h3 className="movie-title">{movie.title} ({movie.year})</h3>
+          <p className="movie-description">{movie.description}</p>
+          <div className="actions">
+            {user && (
+              <>
+                <Link className="edit-link" to={`/edit/${movie.id}`}>Edit</Link>
+                <button className="delete-button" onClick={() => onDelete(movie.id)}>Delete</button>
+              </>
+            )}
+          </div>
         </div>
       ))}
     </div>

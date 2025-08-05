@@ -1,54 +1,80 @@
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AddMovie.css';
 
-const schema = yup.object({
-  title: yup.string().required('Title is required'),
-  year: yup
-    .number()
-    .typeError('Year must be a number')
-    .integer('Year must be an integer')
-    .min(1900, 'Year must be >= 1900')
-    .max(new Date().getFullYear(), 'Year cannot be in the future')
-    .required('Year is required'),
-  description: yup.string(),
-}).required();
-
 export default function AddMovie({ onAdd }) {
-  const { register, handleSubmit, formState: { errors } } = useForm({
-    resolver: yupResolver(schema)
+  const [formData, setFormData] = useState({
+    title: '',
+    year: '',
+    description: ''
   });
 
-  const onSubmit = data => {
-    onAdd(data);
-    alert('Movie added!');
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.name]: e.target.value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!formData.title || !formData.year || !formData.description) {
+      alert('Please fill all fields');
+      return;
+    }
+
+    onAdd({
+      title: formData.title,
+      year: formData.year,
+      description: formData.description
+    });
+
+    alert('Movie added successfully!');
+    navigate('/');
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form-container">
-      <h2>Add New Movie</h2>
+    <div className="add-movie-container">
+      <h2>Add Movie</h2>
+      <form onSubmit={handleSubmit} className="add-movie-form">
+        <div className="form-group">
+          <label>Title</label>
+          <input
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label>Title</label>
-        <input {...register('title')} />
-        <p className="error">{errors.title?.message}</p>
-      </div>
+        <div className="form-group">
+          <label>Year</label>
+          <input
+            name="year"
+            value={formData.year}
+            onChange={handleChange}
+            required
+            type="number"
+            min="1888"
+            max={new Date().getFullYear()}
+          />
+        </div>
 
-      <div className="form-group">
-        <label>Year</label>
-        <input {...register('year')} />
-        <p className="error">{errors.year?.message}</p>
-      </div>
+        <div className="form-group">
+          <label>Description</label>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
+        </div>
 
-      <div className="form-group">
-        <label>Description</label>
-        <textarea {...register('description')} />
-        <p className="error">{errors.description?.message}</p>
-      </div>
-
-      <button type="submit">Add Movie</button>
-    </form>
+        <button type="submit">Add Movie</button>
+      </form>
+    </div>
   );
 }

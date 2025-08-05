@@ -1,16 +1,31 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import './Navbar.css'; 
 
-export default function Navbar() {
+function Navbar() {
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <nav className="navbar">
-      <h2 className="logo">Movie Tracker</h2>
-      <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/add">Add Movie</Link></li>
-        <li><Link to="/login">Login</Link></li>
-      </ul>
+      <Link to="/">Home</Link>
+      {user && <Link to="/add">Add Movie</Link>}
+      {user && <Link to="/profile">Edit Profile</Link>}
+      {!user && (
+        <>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Register</Link>
+        </>
+      )}
+      {user && <button onClick={handleLogout}>Logout</button>}
     </nav>
   );
 }
+
+export default Navbar;
