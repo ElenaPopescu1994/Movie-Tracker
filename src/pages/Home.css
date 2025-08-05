@@ -1,0 +1,27 @@
+.home-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.movie-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.movie-item h3 {
+  margin: 0;
+}
+
+.movie-item p {
+  margin: 5px 0;
+}
+
+.movie-item a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+.movie-item a:hover {
+  text-decoration: underline;
+}
