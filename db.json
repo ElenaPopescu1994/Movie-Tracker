@@ -1,10 +1,22 @@
 {
   "movies": [
     {
-      "id": "1654",
-      "title": "fdfdf",
-      "description": "sfgfdg",
-      "year": 2000
+      "id": "1",
+      "title": "Rush Hour",
+      "actors": "Jackie Chan, Chris Tucker, Ken Leung",
+      "description": "Rush Hour is an action comedy about an unlikely duo: a skilled Hong Kong detective and a laid back Los Angeles cop who team up to rescue a kidnapped diplomat's daughter.",
+      "year": 1998,
+      "genre": "Action",
+      "poster": "rush-hour.jpg"
+    },
+    {
+      "id": "18bc",
+      "title": "kj",
+      "description": "jjhk",
+      "year": 2011,
+      "genre": "Sci-Fi",
+      "actors": "",
+      "poster": "default.jpg"
     }
   ],
   "users": [
@@ -16,7 +28,7 @@
       "lastName": "User"
     },
     {
-      "id": "352b",
+      "id": "2",
       "email": "ana@yahoo.com",
       "password": "Claudiu",
       "firstName": "Elena",

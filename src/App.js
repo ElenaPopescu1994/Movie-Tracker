@@ -7,6 +7,7 @@ import EditMovie from './pages/EditMovie';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import EditProfile from './pages/EditProfile';
+import MovieDetails from './pages/MovieDetails';
 
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -78,6 +79,7 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/movies/:id" element={<MovieDetails />} />
             <Route
               path="/add"
               element={

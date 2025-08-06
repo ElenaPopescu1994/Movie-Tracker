@@ -1,63 +1,71 @@
 .home-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 0 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
 
 .movie-card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 15px;
+  border: 1px solid #ddd;
   border-radius: 6px;
-  background: #fafafa;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.movie-card h3 {
-  margin: 0 0 10px 0;
+.movie-poster {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
-.movie-card p {
-  margin: 0 0 15px 0;
+h3 {
+  font-size: 1.1rem;
+  margin: 10px 0 5px;
 }
+
+.description {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  flex-grow: 1; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 
 .actions {
+  margin-top: auto;
   display: flex;
-  gap: 10px;
+  justify-content: space-between;
 }
 
-.edit-link {
-  text-decoration: none;
-  color: #007bff;
-  font-weight: 600;
-}
-
-.edit-link:hover {
-  text-decoration: underline;
-}
-
-.delete-button {
-  background-color: #dc3545;
+.edit-link,
+.delete-button,
+.read-more {
+  background-color: #222;
   color: white;
+  padding: 5px 8px;
+  text-decoration: none;
   border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color 0.2s ease-in-out;
+  font-size: 0.8rem;
+  border-radius: 4px;
 }
 
-.delete-button:disabled {
-  background-color: #a6a6a6;
-  cursor: not-allowed;
-}
-
-.delete-button:hover:not(:disabled) {
-  background-color: #c82333;
+.edit-link:hover,
+.delete-button:hover,
+.read-more:hover {
+  background-color: #444;
 }
 
 .error {
-  color: #dc3545;
-  margin-bottom: 15px;
-  font-weight: bold;
   text-align: center;
+  color: red;
+  font-weight: bold;
 }

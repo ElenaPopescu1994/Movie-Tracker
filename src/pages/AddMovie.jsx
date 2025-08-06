@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { addMovie } from '../services/api';
 import './AddMovie.css';
 
+const genres = ['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi', 'Romance'];
 
 export default function AddMovie() {
   const navigate = useNavigate();
@@ -10,6 +11,8 @@ export default function AddMovie() {
     title: '',
     description: '',
     year: '',
+    genre: genres[0],
+    actors: '',
   });
 
   const handleChange = (e) => {
@@ -21,7 +24,8 @@ export default function AddMovie() {
     try {
       await addMovie({
         ...formData,
-        year: Number(formData.year)
+        year: Number(formData.year),
+        poster: 'default.jpg'
       });
       alert('Movie added!');
       navigate('/');
@@ -35,14 +39,42 @@ export default function AddMovie() {
       <h2>Add Movie</h2>
       <form onSubmit={handleSubmit}>
         <label>Title</label>
-        <input name="title" value={formData.title} onChange={handleChange} required />
-        
+        <input
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          required
+        />
+
         <label>Description</label>
-        <textarea name="description" value={formData.description} onChange={handleChange} required />
-        
+        <textarea
+          name="description"
+          value={formData.description}
+          onChange={handleChange}
+          required
+        />
+
         <label>Year</label>
-        <input type="number" name="year" value={formData.year} onChange={handleChange} required />
-        
+        <input
+          type="number"
+          name="year"
+          value={formData.year}
+          onChange={handleChange}
+          required
+        />
+
+        <label>Actors</label>
+        <input name="actors" value={formData.actors} onChange={handleChange} placeholder="Actor1, Actor2, ..." />
+
+        <label>Genre</label>
+        <select name="genre" value={formData.genre} onChange={handleChange}>
+          {genres.map((g) => (
+            <option key={g} value={g}>
+              {g}
+            </option>
+          ))}
+        </select>
+
         <button type="submit">Add Movie</button>
       </form>
     </div>

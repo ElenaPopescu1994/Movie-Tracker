@@ -39,11 +39,15 @@ export async function updateMovie(movie) {
 }
 
 export async function loginUser(email, password) {
-  const res = await fetch(`${API_URL}/users?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
+  const res = await fetch(`${API_URL}/users?email=${encodeURIComponent(email)}`);
   if (!res.ok) throw new Error('Login request failed');
+
   const users = await res.json();
-  if (users.length === 0) throw new Error('Invalid email or password');
-  return users[0];
+  const user = users.find(u => u.password === password); 
+
+  if (!user) throw new Error('Invalid email or password');
+
+  return user;
 }
 
 export async function registerUser(userData) {

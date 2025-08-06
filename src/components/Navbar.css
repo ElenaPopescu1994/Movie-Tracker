@@ -3,6 +3,7 @@
   padding: 10px;
   display: flex;
   gap: 15px;
+  align-items: center; 
 }
 
 .navbar a {
@@ -15,4 +16,11 @@
   border: none;
   color: white;
   cursor: pointer;
+}
+
+.navbar .greeting {
+  color: white;
+  font-weight: 500;
+  margin-left: auto; 
+  margin-right: 10px; 
 }

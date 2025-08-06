@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
-import './Navbar.css'; 
+import { AuthContext } from '../context/AuthContext';  
+import './Navbar.css';
 
 function Navbar() {
   const { user, logout } = useContext(AuthContext);
@@ -23,7 +23,12 @@ function Navbar() {
           <Link to="/register">Register</Link>
         </>
       )}
-      {user && <button onClick={handleLogout}>Logout</button>}
+      {user && (
+        <>
+          <span className="greeting">Hi, {user.firstName}!</span>
+          <button onClick={handleLogout}>Logout</button>
+        </>
+      )}
     </nav>
   );
 }

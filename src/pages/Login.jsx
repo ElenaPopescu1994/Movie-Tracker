@@ -20,11 +20,18 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
+
+    console.log('🔐 Login attempt:');
+    console.log('📧 Email:', formData.email);
+    console.log('🔑 Password:', formData.password);
+
     try {
       const user = await loginUser(formData.email, formData.password);
+      console.log(' Login successful:', user);
       login(user);
       navigate('/');
     } catch (err) {
+      console.error(' Login failed:', err.message);
       setError(err.message || 'Login failed. Please try again.');
     }
   };
