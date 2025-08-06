@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { fetchMovies, updateMovie } from '../services/api';
+import { fetchMovieById, updateMovie } from '../services/api';
 import './EditMovie.css';
 
 export default function EditMovie() {
@@ -12,24 +12,18 @@ export default function EditMovie() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
-    fetchMovies()
-      .then(movies => {
-        const movie = movies.find(m => m.id === Number(id));
-        if (!movie) {
-          setError('Movie not found');
-          setLoading(false);
-          setTimeout(() => navigate('/'), 3000);
-          return;
-        }
-        setFormData(movie);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError('Failed to load movies. Please try again later.');
-        setLoading(false);
-      });
-  }, [id, navigate]);
+  setLoading(true);
+  fetchMovieById(id)
+    .then(movie => {
+      setFormData(movie);
+      setLoading(false);
+    })
+    .catch(err => {
+      setError('Movie not found or failed to load.');
+      setLoading(false);
+      setTimeout(() => navigate('/'), 3000);
+    });
+}, [id, navigate]);
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
