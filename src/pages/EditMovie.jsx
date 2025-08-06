@@ -1,80 +1,75 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { fetchMovies, updateMovie } from '../services/api';
 import './EditMovie.css';
 
-export default function EditMovie({ movies, onEdit }) {
+export default function EditMovie() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const movieToEdit = movies.find(m => m.id === Number(id));
-
-  const [formData, setFormData] = useState({
-    title: '',
-    description: '',
-    year: ''
-  });
+  const [formData, setFormData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (movieToEdit) {
-      setFormData({
-        title: movieToEdit.title,
-        description: movieToEdit.description,
-        year: movieToEdit.year || ''
+    setLoading(true);
+    fetchMovies()
+      .then(movies => {
+        const movie = movies.find(m => m.id === Number(id));
+        if (!movie) {
+          setError('Movie not found');
+          setLoading(false);
+          setTimeout(() => navigate('/'), 3000);
+          return;
+        }
+        setFormData(movie);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError('Failed to load movies. Please try again later.');
+        setLoading(false);
       });
-    }
-  }, [movieToEdit]);
+  }, [id, navigate]);
 
   const handleChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const updatedMovie = {
-      id: movieToEdit.id,
-      ...formData,
-      year: Number(formData.year)
-    };
-
-    onEdit(updatedMovie); 
-    navigate('/');         
+    setError(null);
+    try {
+      await updateMovie({
+        ...formData,
+        year: Number(formData.year),
+      });
+      alert('Movie updated!');
+      navigate('/');
+    } catch (err) {
+      setError('Failed to update movie. Please try again.');
+    }
   };
 
-  if (!movieToEdit) {
-    return <p>Movie not found!</p>;
-  }
+  if (loading) return <p>Loading...</p>;
 
   return (
     <div className="edit-movie-container">
       <h2>Edit Movie</h2>
-      <form onSubmit={handleSubmit} className="edit-movie-form">
-        <div>
+      {error && <div className="error-message">{error}</div>}
+      {formData && (
+        <form onSubmit={handleSubmit}>
           <label>Title</label>
           <input name="title" value={formData.title} onChange={handleChange} required />
-        </div>
 
-        <div>
           <label>Description</label>
           <textarea name="description" value={formData.description} onChange={handleChange} required />
-        </div>
 
-        <div>
           <label>Year</label>
-          <input
-            name="year"
-            type="number"
-            value={formData.year}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <input type="number" name="year" value={formData.year} onChange={handleChange} required />
 
-        <button type="submit">Save Changes</button>
-      </form>
+          <button type="submit">Save Changes</button>
+        </form>
+      )}
     </div>
   );
 }

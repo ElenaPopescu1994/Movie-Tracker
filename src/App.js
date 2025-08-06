@@ -12,31 +12,58 @@ import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 
+const API_URL = 'http://localhost:5000';
+
 function App() {
-  const initialMovies = [
-    { id: 1, title: "Inception", description: "A mind-bending thriller", year: 2010 },
-    { id: 2, title: "The Matrix", description: "Sci-fi classic", year: 1999 }
-  ];
-
-  const [movies, setMovies] = useState(() => {
-    const savedMovies = localStorage.getItem('movies');
-    return savedMovies ? JSON.parse(savedMovies) : initialMovies;
-  });
-
+  const [movies, setMovies] = useState([]);
+  
   useEffect(() => {
-    localStorage.setItem('movies', JSON.stringify(movies));
-  }, [movies]);
+    fetch(`${API_URL}/movies`)
+      .then(res => res.json())
+      .then(data => setMovies(data))
+      .catch(err => console.error('Failed to fetch movies:', err));
+  }, []);
 
-  const addMovie = (movie) => {
-    setMovies(prev => [...prev, { ...movie, id: Date.now() }]);
+  const addMovie = async (movie) => {
+    try {
+      const res = await fetch(`${API_URL}/movies`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(movie),
+      });
+      if (!res.ok) throw new Error('Failed to add movie');
+      const newMovie = await res.json();
+      setMovies(prev => [...prev, newMovie]);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const editMovie = (updatedMovie) => {
-    setMovies(prev => prev.map(m => m.id === updatedMovie.id ? updatedMovie : m));
+  const editMovie = async (updatedMovie) => {
+    try {
+      const res = await fetch(`${API_URL}/movies/${updatedMovie.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedMovie),
+      });
+      if (!res.ok) throw new Error('Failed to update movie');
+      const data = await res.json();
+      setMovies(prev => prev.map(m => (m.id === data.id ? data : m)));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const deleteMovie = (id) => {
-    setMovies(prev => prev.filter(m => m.id !== id));
+  const deleteMovie = async (id) => {
+    try {
+      const res = await fetch(`${API_URL}/movies/${id}`, {
+        method: 'DELETE',
+      });
+      if (!res.ok) throw new Error('Failed to delete movie');
+      setMovies(prev => prev.filter(m => m.id !== id));
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
