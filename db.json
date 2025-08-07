@@ -10,14 +10,527 @@
       "poster": "rush-hour.jpg"
     },
     {
-      "id": "18bc",
-      "title": "kj",
-      "description": "jjhk",
-      "year": 2011,
-      "genre": "Sci-Fi",
-      "actors": "",
-      "poster": "default.jpg"
-    }
+      "id": "2",
+      "title": "The Godfather",
+      "actors": "Marlon Brando, Al Pacino",
+      "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son, revealing the dark side of the American Dream and the corrosive power of power itself.",
+      "year": 1972,
+      "genre": "Crime, Drama",
+      "poster": "the-godfather.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Titanic",
+      "actors": "Leonardo DiCaprio, Kate Winslet",
+      "description": "A sweeping romantic epic set aboard the ill-fated RMS Titanic, where a penniless artist and a high‑society woman fall in love as the ship faces its tragic maiden voyage.",
+      "year": 1997,
+      "genre": "Romance, Drama, Disaster",
+      "poster": "titanic.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Pulp Fiction",
+      "actors": "John Travolta, Uma Thurman",
+      "description": "An electrifying anthology of intertwining stories in the criminal underworld of Los Angeles, blending violence, dark comedy, and rich dialogue into a cult classic.",
+      "year": 1994,
+      "genre": "Crime, Drama",
+      "poster": "pulp-fiction.jpg"
+    },
+    {
+      "id": "5",
+      "title": "The Dark Knight",
+      "actors": "Christian Bale, Heath Ledger",
+      "description": "When the menace known as the Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham. The Dark Knight must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+      "year": 2008,
+      "genre": "Action, Crime, Drama",
+      "poster": "the-dark-knight.jpg"
+    },
+    {
+      "id": "6",
+      "title": "Inception",
+      "actors": "Leonardo DiCaprio, Joseph Gordon-Levitt",
+      "description": "A skilled thief, the absolute best in the dangerous art of extraction, stealing valuable secrets from deep within the subconscious during the dream state, is offered a chance at redemption if he can accomplish the impossible: inception.",
+      "year": 2010,
+      "genre": "Action, Sci-Fi, Thriller",
+      "poster": "inception.jpg"
+    },
+    {
+      "id": "7",
+      "title": "Forrest Gump",
+      "actors": "Tom Hanks, Robin Wright",
+      "description": "Forrest Gump, a man with a low IQ but good intentions, recounts the early years of his life when he found himself in the middle of key historical events. Despite his simple nature, he becomes a symbol of hope and perseverance.",
+      "year": 1994,
+      "genre": "Drama, Romance",
+      "poster": "forrest-gump.jpg"
+    },
+    {
+      "id": "8",
+      "title": "The Matrix",
+      "actors": "Keanu Reeves, Laurence Fishburne",
+      "description": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers. This revelation leads him down a path of action, rebellion, and discovery.",
+      "year": 1999,
+      "genre": "Action, Sci-Fi",
+      "poster": "the-matrix.jpg"
+    },
+    {
+      "id": "9",
+      "title": "Gladiator",
+      "actors": "Russell Crowe, Joaquin Phoenix",
+      "description": "A former Roman General sets out to exact vengeance against the corrupt emperor who murdered his family and sent him into slavery. His quest becomes legendary as he fights for justice in the Colosseum.",
+      "year": 2000,
+      "genre": "Action, Adventure, Drama",
+      "poster": "gladiator.jpg"
+    },
+    {
+      "id": "10",
+      "title": "Interstellar",
+      "actors": "Matthew McConaughey, Anne Hathaway",
+      "description": "A team of explorers travels through a wormhole in space in an attempt to ensure humanity’s survival. As Earth becomes increasingly uninhabitable, their mission stretches the boundaries of space, time, and sacrifice.",
+      "year": 2014,
+      "genre": "Adventure, Drama, Sci-Fi",
+      "poster": "interstellar.jpg"
+    },
+    {
+      "id": "11",
+      "title": "Schindler's List",
+      "actors": "Liam Neeson, Ben Kingsley",
+      "description": "The true story of Oskar Schindler, a German businessman who saved over a thousand Polish Jews during the Holocaust by employing them in his factories, risking everything to stand against evil.",
+      "year": 1993,
+      "genre": "Biography, Drama, History",
+      "poster": "schindlers-list.jpg"
+    },
+    {
+      "id": "12",
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "actors": "Elijah Wood, Ian McKellen",
+      "description": "A meek Hobbit from the Shire and eight companions set out on a quest to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.",
+      "year": 2001,
+      "genre": "Adventure, Drama, Fantasy",
+      "poster": "the-lord-of-the-rings-the-fellowship-of-the-ring.jpg"
+    },
+    {
+      "id": "13",
+      "title": "The Shawshank Redemption",
+      "actors": "Tim Robbins, Morgan Freeman",
+      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency, hope, and an unbreakable friendship.",
+      "year": 1994,
+      "genre": "Drama",
+      "poster": "the-shawshank-redemption.jpg"
+    },
+    {
+      "id": "14",
+      "title": "Avengers: Endgame",
+      "actors": "Robert Downey Jr., Chris Evans",
+      "description": "After the devastating events of Avengers: Infinity War, the remaining heroes must band together to reverse the actions of Thanos and restore balance to the universe in a final, epic showdown.",
+      "year": 2019,
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "avengers-endgame.jpg"
+    },
+    {
+      "id": "15",
+      "title": "Fight Club",
+      "actors": "Brad Pitt, Edward Norton",
+      "description": "An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into something much more, challenging societal norms and personal identity.",
+      "year": 1999,
+      "genre": "Drama",
+      "poster": "fight-club.jpg"
+    },
+    {
+      "id": "16",
+      "title": "The Silence of the Lambs",
+      "actors": "Jodie Foster, Anthony Hopkins",
+      "description": "A young FBI cadet must confide in an incarcerated and manipulative killer to receive his help on catching another serial killer who skins his victims.",
+      "year": 1991,
+      "genre": "Crime, Drama, Thriller",
+      "poster": "the-silence-of-the-lambs.jpg"
+    },
+    {
+      "id": "17",
+      "title": "Saving Private Ryan",
+      "actors": "Tom Hanks, Matt Damon",
+      "description": "Following the Normandy Landings, a group of U.S. soldiers go behind enemy lines to retrieve a paratrooper whose brothers have been killed in action.",
+      "year": 1998,
+      "genre": "Drama, War",
+      "poster": "saving-private-ryan.jpg"
+    },
+    {
+      "id": "18",
+      "title": "The Lion King",
+      "actors": "Matthew Broderick, Jeremy Irons",
+      "description": "After the death of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery as he returns to reclaim his throne.",
+      "year": 1994,
+      "genre": "Animation, Adventure, Drama",
+      "poster": "the-lion-king.jpg"
+    },
+    {
+      "id": "19",
+      "title": "Jurassic Park",
+      "actors": "Sam Neill, Laura Dern",
+      "description": "During a preview tour of a new dinosaur theme park, a catastrophic failure of the park's security system leads to dinosaurs escaping and wreaking havoc.",
+      "year": 1993,
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "jurassic-park.jpg"
+    },
+    {
+      "id": "20",
+      "title": "Back to the Future",
+      "actors": "Michael J. Fox, Christopher Lloyd",
+      "description": "A teenager is accidentally sent 30 years into the past in a time-traveling DeLorean invented by his eccentric scientist friend, and must ensure his parents fall in love to save his own existence.",
+      "year": 1985,
+      "genre": "Adventure, Comedy, Sci-Fi",
+      "poster": "back-to-the-future.jpg"
+    },
+    {
+      "id": "21",
+      "title": "The Prestige",
+      "actors": "Christian Bale, Hugh Jackman",
+      "description": "Two rival magicians engage in a bitter competition to create the ultimate stage illusion, with dangerous consequences that reveal obsession and deceit.",
+      "year": 2006,
+      "genre": "Drama, Mystery, Sci-Fi",
+      "poster": "the-prestige.jpg"
+    },
+    {
+      "id": "22",
+      "title": "Django Unchained",
+      "actors": "Jamie Foxx, Christoph Waltz",
+      "description": "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal plantation owner in the Deep South.",
+      "year": 2012,
+      "genre": "Drama, Western",
+      "poster": "django-unchained.jpg"
+    },
+    {
+      "id": "23",
+      "title": "The Departed",
+      "actors": "Leonardo DiCaprio, Matt Damon",
+      "description": "An undercover cop and a mole in the police attempt to identify each other while infiltrating an Irish gang in Boston.",
+      "year": 2006,
+      "genre": "Crime, Drama, Thriller",
+      "poster": "the-departed.jpg"
+    },
+    {
+      "id": "24",
+      "title": "Braveheart",
+      "actors": "Mel Gibson, Sophie Marceau",
+      "description": "Scottish warrior William Wallace leads his countrymen in a rebellion to free Scotland from English rule in this epic tale of courage and sacrifice.",
+      "year": 1995,
+      "genre": "Biography, Drama, History",
+      "poster": "braveheart.jpg"
+    },
+    {
+      "id": "25",
+      "title": "The Green Mile",
+      "actors": "Tom Hanks, Michael Clarke Duncan",
+      "description": "The lives of guards on Death Row are affected by one of their charges: a black man accused of child murder and rape, who has a mysterious gift.",
+      "year": 1999,
+      "genre": "Crime, Drama, Fantasy",
+      "poster": "the-green-mile.jpg"
+    },
+    {
+      "id": "26",
+      "title": "Avatar",
+      "actors": "Sam Worthington, Zoe Saldana",
+      "description": "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+      "year": 2009,
+      "genre": "Action, Adventure, Fantasy",
+      "poster": "avatar.jpg"
+    },
+    {
+      "id": "27",
+      "title": "The Avengers",
+      "actors": "Robert Downey Jr., Chris Evans",
+      "description": "Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.",
+      "year": 2012,
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "the-avengers.jpg"
+    },
+    {
+      "id": "28",
+      "title": "The Wolf of Wall Street",
+      "actors": "Leonardo DiCaprio, Jonah Hill",
+      "description": "Based on the true story of Jordan Belfort, from his rise to a wealthy stockbroker living the high life to his fall involving crime, corruption, and the federal government.",
+      "year": 2013,
+      "genre": "Biography, Comedy, Crime",
+      "poster": "the-wolf-of-wall-street.jpg"
+    },
+    {
+      "id": "29",
+      "title": "Goodfellas",
+      "actors": "Robert De Niro, Ray Liotta",
+      "description": "The story of Henry Hill and his life in the mob, covering his relationship with his wife Karen Hill and his mob partners over a period from 1955 to 1980.",
+      "year": 1990,
+      "genre": "Biography, Crime, Drama",
+      "poster": "goodfellas.jpg"
+    },
+    {
+      "id": "30",
+      "title": "Casino Royale",
+      "actors": "Daniel Craig, Eva Green",
+      "description": "James Bond's first mission as 007 leads him to confront a terrorist financier in a high-stakes poker game at Casino Royale.",
+      "year": 2006,
+      "genre": "Action, Adventure, Thriller",
+      "poster": "casino-royale.jpg"
+    },
+    {
+      "id": "31",
+      "title": "The Social Network",
+      "actors": "Jesse Eisenberg, Andrew Garfield",
+      "description": "The story of the founding of Facebook and the resulting lawsuits, portraying the complicated relationships and ambition of its creators.",
+      "year": 2010,
+      "genre": "Biography, Drama",
+      "poster": "the-social-network.jpg"
+    },
+    {
+      "id": "32",
+      "title": "Gladiator 2",
+      "actors": "Russell Crowe, Joaquin Phoenix",
+      "description": "The sequel to the epic story of Roman General Maximus, continuing the saga of revenge and honor.",
+      "year": 2025,
+      "genre": "Action, Adventure, Drama",
+      "poster": "gladiator-2.jpg"
+    },
+    {
+      "id": "33",
+      "title": "Deadpool",
+      "actors": "Ryan Reynolds, Morena Baccarin",
+      "description": "A former Special Forces operative turned mercenary is subjected to a rogue experiment that leaves him with accelerated healing powers, adopting the alter ego Deadpool.",
+      "year": 2016,
+      "genre": "Action, Adventure, Comedy",
+      "poster": "deadpool.jpg"
+    },
+    {
+      "id": "34",
+      "title": "Black Panther",
+      "actors": "Chadwick Boseman, Michael B. Jordan",
+      "description": "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and confront a powerful enemy.",
+      "year": 2018,
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "black-panther.jpg"
+    },
+    {
+      "id": "35",
+      "title": "Mad Max: Fury Road",
+      "actors": "Tom Hardy, Charlize Theron",
+      "description": "In a post-apocalyptic wasteland, Max teams up with Furiosa to escape a cult leader and save a group of female prisoners, culminating in a high-octane road battle.",
+      "year": 2015,
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "mad-max-fury-road.jpg"
+    },
+    {
+      "id": "36",
+      "title": "The Big Lebowski",
+      "actors": "Jeff Bridges, John Goodman",
+      "description": "Jeff 'The Dude' Lebowski gets involved in a case of mistaken identity that leads to an escalating series of events involving bowling, kidnapping, and nihilists.",
+      "year": 1998,
+      "genre": "Comedy, Crime",
+      "poster": "the-big-lebowski.jpg"
+    },
+    {
+      "id": "37",
+      "title": "The Exorcist",
+      "actors": "Ellen Burstyn, Max von Sydow",
+      "description": "When a young girl is possessed by a mysterious entity, her mother seeks the help of two priests to save her through an intense and terrifying exorcism.",
+      "year": 1973,
+      "genre": "Horror",
+      "poster": "the-exorcist.jpg"
+    },
+    {
+      "id": "38",
+      "title": "The Hobbit: An Unexpected Journey",
+      "actors": "Martin Freeman, Ian McKellen",
+      "description": "Bilbo Baggins is swept into an epic quest to reclaim the lost Dwarf Kingdom of Erebor from the fearsome dragon Smaug.",
+      "year": 2012,
+      "genre": "Adventure, Fantasy",
+      "poster": "the-hobbit-an-unexpected-journey.jpg"
+    },
+    {
+      "id": "39",
+      "title": "Wonder Woman",
+      "actors": "Gal Gadot, Chris Pine",
+      "description": "Diana, an Amazonian warrior princess, discovers her full powers and true destiny when she enters the world of men to end a global conflict.",
+      "year": 2017,
+      "genre": "Action, Adventure, Fantasy",
+      "poster": "wonder-woman.jpg"
+    },
+    {
+      "id": "41",
+      "title": "Now You See Me",
+      "actors": "Jesse Eisenberg, Mark Ruffalo",
+      "description": "An FBI agent and an Interpol detective track a team of illusionists who pull off bank heists during their performances and reward their audiences with the money.",
+      "year": 2013,
+      "genre": "Crime, Mystery, Thriller",
+      "poster": "now-you-see-me.jpg"
+    },
+    {
+      "id": "42",
+      "title": "The Notebook",
+      "actors": "Ryan Gosling, Rachel McAdams",
+      "description": "A romantic drama about a young couple who fall in love during the early 1940s, facing challenges of social differences and memory loss.",
+      "year": 2004,
+      "genre": "Romance, Drama",
+      "poster": "the-notebook.jpg"
+    },
+    {
+      "id": "43",
+      "title": "Snow White",
+      "actors": "Adriana Caselotti",
+      "description": "A classic fairy tale about a princess who takes refuge with seven dwarfs to escape the jealous queen, learning about kindness and bravery.",
+      "year": 1937,
+      "genre": "Animation, Family, Fantasy",
+      "poster": "snow-white.jpg"
+    },
+    {
+      "id": "44",
+      "title": "Cinderella",
+      "actors": "Lily James, Cate Blanchett",
+      "description": "A young woman living in unfortunate circumstances gets help from her fairy godmother to attend the royal ball and change her destiny.",
+      "year": 2015,
+      "genre": "Drama, Family, Fantasy",
+      "poster": "cinderella.jpg"
+    },
+    {
+      "id": "45",
+      "title": "Jumanji",
+      "actors": "Robin Williams, Kirsten Dunst",
+      "description": "Two kids discover a magical board game that brings jungle hazards to life, and they must finish the game to stop the chaos.",
+      "year": 1995,
+      "genre": "Adventure, Comedy, Family",
+      "poster": "jumanji.jpg"
+    },
+    {
+      "id": "46",
+      "title": "Jurassic World",
+      "actors": "Chris Pratt, Bryce Dallas Howard",
+      "description": "A new dinosaur theme park opens, but when a genetically modified dinosaur escapes, chaos ensues and survival becomes a race against time.",
+      "year": 2015,
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "jurassic-world.jpg"
+    },
+    {
+      "id": "47",
+      "title": "The Great Gatsby",
+      "actors": "Leonardo DiCaprio, Carey Mulligan",
+      "description": "A mysterious millionaire throws extravagant parties in hopes of reuniting with his long-lost love, as the story explores themes of wealth, illusion, and the American Dream in 1920s America.",
+      "year": 2013,
+      "genre": "Drama, Romance",
+      "poster": "the-great-gatsby.jpg"
+    },
+    {
+      "id": "48",
+      "title": "Tomb Raider",
+      "actors": "Alicia Vikander, Dominic West",
+      "description": "Lara Croft, the fiercely independent daughter of a missing adventurer, embarks on a perilous journey to uncover the mystery behind her father’s disappearance and a deadly ancient tomb.",
+      "year": 2018,
+      "genre": "Action, Adventure, Fantasy",
+      "poster": "tomb-raider.jpg"
+    },
+    {
+      "id": "49",
+      "title": "The Hunger Games",
+      "actors": "Jennifer Lawrence, Josh Hutcherson",
+      "description": "In a dystopian future where children are chosen to fight to the death in a televised event, Katniss Everdeen volunteers to save her sister and becomes a symbol of hope and resistance.",
+      "year": 2012,
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "the-hunger-games.jpg"
+    },
+    {
+      "id": "50",
+      "title": "Inside Out",
+      "actors": "Amy Poehler, Phyllis Smith",
+      "description": "Inside the mind of a young girl named Riley, five emotions—Joy, Sadness, Fear, Anger, and Disgust—work together to help her navigate the ups and downs of moving to a new city.",
+      "year": 2015,
+      "genre": "Animation, Adventure, Comedy",
+      "poster": "inside-out.jpg"
+    },
+    {
+      "id": "51",
+      "title": "Moana",
+      "actors": "Auli'i Cravalho, Dwayne Johnson",
+      "description": "An adventurous teenager sets sail on a daring mission to save her island, meeting the demigod Maui and discovering her true destiny as a wayfinder.",
+      "year": 2016,
+      "genre": "Animation, Adventure, Comedy",
+      "poster": "moana.jpg"
+    },
+    {
+      "id": "52",
+      "title": "Rush Hour 3",
+      "actors": "Jackie Chan, Chris Tucker",
+      "description": "Detectives Lee and Carter reunite in Paris to unravel a deadly plot involving the Chinese Triads and uncover secrets that hit close to home.",
+      "year": 2007,
+      "genre": "Action, Comedy, Crime",
+      "poster": "rush-hour-3.jpg"
+    },
+    {
+      "id": "53",
+      "title": "Deadpool 2",
+      "actors": "Ryan Reynolds, Josh Brolin",
+      "description": "Deadpool forms a team of mutants to protect a young boy from the time-traveling soldier Cable, in a mix of dark humor, action, and heart.",
+      "year": 2018,
+      "genre": "Action, Comedy, Sci-Fi",
+      "poster": "deadpool-2.jpg"
+    },
+    {
+      "id": "54",
+      "title": "The Hunger Games: Mockingjay - Part 1",
+      "actors": "Jennifer Lawrence, Josh Hutcherson",
+      "description": "Katniss becomes the symbol of a mass rebellion against the autocratic Capitol, while navigating propaganda, rescue missions, and moral dilemmas.",
+      "year": 2014,
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "the-hunger-games-mockingjay-part-1.jpg"
+    },
+    {
+      "id": "55",
+      "title": "The Hunger Games: Mockingjay - Part 2",
+      "actors": "Jennifer Lawrence, Josh Hutcherson",
+      "description": "In the final chapter of the saga, Katniss leads District 13’s rebellion into the Capitol in a climactic battle for freedom and justice.",
+      "year": 2015,
+      "genre": "Action, Adventure, Sci-Fi",
+      "poster": "the-hunger-games-mockingjay-part-2.jpg"
+    },
+    {
+      "id": "56",
+      "title": "Frozen II",
+      "actors": "Idina Menzel, Kristen Bell",
+      "description": "Elsa, Anna, Kristoff, Olaf, and Sven journey beyond Arendelle to discover the origin of Elsa's powers and save their kingdom from an ancient threat.",
+      "year": 2019,
+      "genre": "Animation, Adventure, Comedy",
+      "poster": "frozen-2.jpg"
+    },
+     {
+    "id": "57",
+    "title": "The Dark Knight Rises",
+    "actors": "Christian Bale, Tom Hardy",
+    "description": "Eight years after the Joker’s reign, Batman must come out of retirement to stop the masked terrorist Bane and save Gotham from destruction.",
+    "year": 2012,
+    "genre": "Action, Thriller, Drama",
+    "poster": "the-dark-knight-rises.jpg"
+  },
+  {
+  "id": "58",
+  "title": "Rush Hour 2",
+  "actors": "Jackie Chan, Chris Tucker",
+  "description": "Detectives Lee and Carter reunite for a vacation in Hong Kong, but their plans are interrupted when they uncover a dangerous conspiracy involving counterfeit money and international crime.",
+  "year": 2001,
+  "genre": "Action, Comedy, Crime",
+  "poster": "rush-hour-2.jpg"
+},
+{
+  "id": "59",
+  "title": "Deadpool 3",
+  "actors": "Ryan Reynolds, Hugh Jackman",
+  "description": "In an unexpected and chaotic crossover, Deadpool teams up with Wolverine in a multiverse-bending mission that blends Marvel's signature humor, action, and heart.",
+  "year": 2024,
+  "genre": "Action, Comedy, Sci-Fi",
+  "poster": "deadpool-3.jpg"
+},
+{
+  "id": "60",
+  "title": "Frozen",
+  "actors": "Idina Menzel, Kristen Bell",
+  "description": "When Queen Elsa accidentally unleashes eternal winter on the kingdom of Arendelle, her sister Anna teams up with a rugged iceman, a loyal reindeer, and a comical snowman to save the realm and discover the power of love.",
+  "year": 2013,
+  "genre": "Animation, Adventure, Comedy",
+  "poster": "frozen.jpg"
+}
   ],
   "users": [
     {
