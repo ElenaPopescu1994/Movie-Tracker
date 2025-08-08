@@ -1,31 +1,22 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import { fetchMovies, deleteMovieById } from '../services/api';
+import { deleteMovieById } from '../services/api';
 import Modal from '../components/Modal';
 import './Home.css';
 
-function Home() {
-  const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null);
-  const [deletingId, setDeletingId] = useState(null);
-  const [movieToDelete, setMovieToDelete] = useState(null);
+function Home({ movies, onDelete }) {
   const { user } = useContext(AuthContext);
-
-  useEffect(() => {
-    fetchMovies()
-      .then(setMovies)
-      .catch(() => setError('Failed to load movies. Please try again.'));
-  }, []);
+  const [movieToDelete, setMovieToDelete] = useState(null);
+  const [deletingId, setDeletingId] = useState(null);
 
   const confirmDelete = () => {
-    const id = movieToDelete?.id;
-    if (!id) return;
+    if (!movieToDelete) return;
 
-    setDeletingId(id);
-    deleteMovieById(id)
+    setDeletingId(movieToDelete.id);
+    deleteMovieById(movieToDelete.id)
       .then(() => {
-        setMovies(m => m.filter(movie => movie.id !== id));
+        onDelete(movieToDelete.id);
         setMovieToDelete(null);
         setDeletingId(null);
       })
@@ -35,21 +26,16 @@ function Home() {
       });
   };
 
-  const cancelDelete = () => {
-    setMovieToDelete(null);
-  };
+  const cancelDelete = () => setMovieToDelete(null);
 
-  const truncateText = (text, maxLength = 50) => {
-    if (!text) return '';
-    if (text.length <= maxLength) return text;
-    return text.slice(0, maxLength) + '...';
-  };
+  const truncateText = (text, maxLength = 50) =>
+    !text ? '' : text.length <= maxLength ? text : text.slice(0, maxLength) + '...';
 
   return (
     <div className="home-container">
-      {error && <p className="error">{error}</p>}
-      {movies.length === 0 && !error && <p>No movies found.</p>}
-      {movies.map(movie => (
+      {movies.length === 0 && <p>No movies found.</p>}
+
+      {movies.map((movie) => (
         <div key={movie.id} className="movie-card">
           <img
             src={`${process.env.PUBLIC_URL}/images/${movie.poster || 'default.jpg'}`}

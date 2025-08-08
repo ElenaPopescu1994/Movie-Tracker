@@ -1,14 +1,21 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #333;
-  padding: 10px;
+  padding: 10px 20px; 
   display: flex;
   gap: 15px;
-  align-items: center; 
+  align-items: center;
+  z-index: 1000;
+  box-sizing: border-box; 
 }
 
 .navbar a {
   color: white;
   text-decoration: none;
+  white-space: nowrap; 
 }
 
 .navbar button {
@@ -16,11 +23,16 @@
   border: none;
   color: white;
   cursor: pointer;
+  padding: 5px 12px;  
+  white-space: nowrap; 
+  flex-shrink: 0; 
+  font-size: 1rem; 
 }
 
 .navbar .greeting {
   color: white;
   font-weight: 500;
-  margin-left: auto; 
-  margin-right: 10px; 
+  margin-left: auto;
+  margin-right: 10px;
+  white-space: nowrap; 
 }

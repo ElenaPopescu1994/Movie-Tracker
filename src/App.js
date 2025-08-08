@@ -8,33 +8,42 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import EditProfile from './pages/EditProfile';
 import MovieDetails from './pages/MovieDetails';
+import Pagination from './components/Pagination';
 
 import Navbar from './components/Navbar';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
 
-const API_URL = 'http://localhost:5000';
+import { fetchMovies, addMovie as apiAddMovie, updateMovie as apiUpdateMovie, deleteMovieById } from './services/api';
+
+const itemsPerPage = 12;
 
 function App() {
   const [movies, setMovies] = useState([]);
-  
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+
   useEffect(() => {
-    fetch(`${API_URL}/movies`)
-      .then(res => res.json())
-      .then(data => setMovies(data))
-      .catch(err => console.error('Failed to fetch movies:', err));
-  }, []);
+    async function loadMovies() {
+      try {
+        const { movies, totalCount } = await fetchMovies(currentPage, itemsPerPage);
+        setMovies(movies);
+        setTotalPages(Math.ceil(totalCount / itemsPerPage));
+      } catch (error) {
+        console.error('Failed to fetch movies:', error);
+      }
+    }
+    loadMovies();
+  }, [currentPage]);
 
   const addMovie = async (movie) => {
     try {
-      const res = await fetch(`${API_URL}/movies`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(movie),
-      });
-      if (!res.ok) throw new Error('Failed to add movie');
-      const newMovie = await res.json();
-      setMovies(prev => [...prev, newMovie]);
+      const newMovie = await apiAddMovie(movie);
+      if (currentPage === totalPages) {
+        setMovies(prev => [...prev, newMovie]);
+      } else {
+        setCurrentPage(totalPages); 
+      }
     } catch (error) {
       console.error(error);
     }
@@ -42,13 +51,7 @@ function App() {
 
   const editMovie = async (updatedMovie) => {
     try {
-      const res = await fetch(`${API_URL}/movies/${updatedMovie.id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(updatedMovie),
-      });
-      if (!res.ok) throw new Error('Failed to update movie');
-      const data = await res.json();
+      const data = await apiUpdateMovie(updatedMovie);
       setMovies(prev => prev.map(m => (m.id === data.id ? data : m)));
     } catch (error) {
       console.error(error);
@@ -57,11 +60,14 @@ function App() {
 
   const deleteMovie = async (id) => {
     try {
-      const res = await fetch(`${API_URL}/movies/${id}`, {
-        method: 'DELETE',
-      });
-      if (!res.ok) throw new Error('Failed to delete movie');
-      setMovies(prev => prev.filter(m => m.id !== id));
+      await deleteMovieById(id);
+      if (movies.length === 1 && currentPage > 1) {
+        setCurrentPage(prev => prev - 1);
+      } else {
+        const { movies: updatedMovies, totalCount } = await fetchMovies(currentPage, itemsPerPage);
+        setMovies(updatedMovies);
+        setTotalPages(Math.ceil(totalCount / itemsPerPage));
+      }
     } catch (error) {
       console.error(error);
     }
@@ -73,10 +79,7 @@ function App() {
         <Navbar />
         <div className="container">
           <Routes>
-            <Route
-              path="/"
-              element={<Home movies={movies} onDelete={deleteMovie} />}
-            />
+            <Route path="/" element={<Home movies={movies} onDelete={deleteMovie} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/movies/:id" element={<MovieDetails />} />
@@ -105,6 +108,12 @@ function App() {
               }
             />
           </Routes>
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
         </div>
       </Router>
     </AuthProvider>

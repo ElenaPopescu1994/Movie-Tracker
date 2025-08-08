@@ -1,9 +1,40 @@
 const API_URL = 'http://localhost:5000';
 
-export async function fetchMovies() {
+export async function fetchMovies(page = 1, limit = 12) {
+  const response = await fetch(`${API_URL}/movies?_page=${page}&_limit=${limit}`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch movies');
+  }
+
+  const totalCount = response.headers.get("x-total-count");
+  const movies = await response.json();
+
+  return { 
+    movies, 
+    totalCount: Number(totalCount) 
+  };
+}
+
+
+
+
+export async function fetchMovieById(id) {
+  const res = await fetch(`${API_URL}/movies/${id}`);
+  if (!res.ok) throw new Error('Failed to fetch movie by id');
+  return await res.json();
+}
+
+export async function fetchTotalMoviesCount() {
   const res = await fetch(`${API_URL}/movies`);
-  if (!res.ok) throw new Error('Failed to fetch movies');
-  return res.json();
+  if (!res.ok) throw new Error('Failed to fetch total movies count');
+  const movies = await res.json();
+  return movies.length;
+}
+
+export async function fetchTotalCount() {
+  const res = await fetch(`${API_URL}/movies`);
+  const movies = await res.json();
+  return movies.length;
 }
 
 export async function deleteMovieById(id) {
@@ -12,11 +43,6 @@ export async function deleteMovieById(id) {
   return true;
 }
 
-export async function fetchMovieById(id) {
-  const res = await fetch(`${API_URL}/movies/${id}`);
-  if (!res.ok) throw new Error('Movie not found');
-  return res.json();
-}
 
 export async function addMovie(movie) {
   const res = await fetch(`${API_URL}/movies`, {
@@ -43,7 +69,7 @@ export async function loginUser(email, password) {
   if (!res.ok) throw new Error('Login request failed');
 
   const users = await res.json();
-  const user = users.find(u => u.password === password); 
+  const user = users.find(u => u.password === password);
 
   if (!user) throw new Error('Invalid email or password');
 
@@ -52,6 +78,8 @@ export async function loginUser(email, password) {
 
 export async function registerUser(userData) {
   const checkRes = await fetch(`${API_URL}/users?email=${encodeURIComponent(userData.email)}`);
+  if (!checkRes.ok) throw new Error('Failed to verify existing users');
+
   const existingUsers = await checkRes.json();
   if (existingUsers.length > 0) throw new Error('Email already registered');
 
