@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 
 import Home from './pages/Home';
 import AddMovie from './pages/AddMovie';
@@ -18,10 +18,11 @@ import { fetchMovies, addMovie as apiAddMovie, updateMovie as apiUpdateMovie, de
 
 const itemsPerPage = 12;
 
-function App() {
+function AppContent() {
   const [movies, setMovies] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const location = useLocation();
 
   useEffect(() => {
     async function loadMovies() {
@@ -42,7 +43,7 @@ function App() {
       if (currentPage === totalPages) {
         setMovies(prev => [...prev, newMovie]);
       } else {
-        setCurrentPage(totalPages); 
+        setCurrentPage(totalPages);
       }
     } catch (error) {
       console.error(error);
@@ -74,47 +75,57 @@ function App() {
   };
 
   return (
-    <AuthProvider>
-      <Router>
-        <Navbar />
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home movies={movies} onDelete={deleteMovie} />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/movies/:id" element={<MovieDetails />} />
-            <Route
-              path="/add"
-              element={
-                <ProtectedRoute>
-                  <AddMovie onAdd={addMovie} />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/edit/:id"
-              element={
-                <ProtectedRoute>
-                  <EditMovie movies={movies} onEdit={editMovie} />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <ProtectedRoute>
-                  <EditProfile />
-                </ProtectedRoute>
-              }
-            />
-          </Routes>
+    <>
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home movies={movies} onDelete={deleteMovie} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/movies/:id" element={<MovieDetails />} />
+          <Route
+            path="/add"
+            element={
+              <ProtectedRoute>
+                <AddMovie onAdd={addMovie} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/edit/:id"
+            element={
+              <ProtectedRoute>
+                <EditMovie movies={movies} onEdit={editMovie} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <EditProfile />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
 
+        {location.pathname === '/' && (
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={setCurrentPage}
           />
-        </div>
+        )}
+      </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <Router>
+        <AppContent />
       </Router>
     </AuthProvider>
   );

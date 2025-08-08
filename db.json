@@ -495,42 +495,42 @@
       "genre": "Animation, Adventure, Comedy",
       "poster": "frozen-2.jpg"
     },
-     {
-    "id": "57",
-    "title": "The Dark Knight Rises",
-    "actors": "Christian Bale, Tom Hardy",
-    "description": "Eight years after the Joker’s reign, Batman must come out of retirement to stop the masked terrorist Bane and save Gotham from destruction.",
-    "year": 2012,
-    "genre": "Action, Thriller, Drama",
-    "poster": "the-dark-knight-rises.jpg"
-  },
-  {
-  "id": "58",
-  "title": "Rush Hour 2",
-  "actors": "Jackie Chan, Chris Tucker",
-  "description": "Detectives Lee and Carter reunite for a vacation in Hong Kong, but their plans are interrupted when they uncover a dangerous conspiracy involving counterfeit money and international crime.",
-  "year": 2001,
-  "genre": "Action, Comedy, Crime",
-  "poster": "rush-hour-2.jpg"
-},
-{
-  "id": "59",
-  "title": "Deadpool 3",
-  "actors": "Ryan Reynolds, Hugh Jackman",
-  "description": "In an unexpected and chaotic crossover, Deadpool teams up with Wolverine in a multiverse-bending mission that blends Marvel's signature humor, action, and heart.",
-  "year": 2024,
-  "genre": "Action, Comedy, Sci-Fi",
-  "poster": "deadpool-3.jpg"
-},
-{
-  "id": "60",
-  "title": "Frozen",
-  "actors": "Idina Menzel, Kristen Bell",
-  "description": "When Queen Elsa accidentally unleashes eternal winter on the kingdom of Arendelle, her sister Anna teams up with a rugged iceman, a loyal reindeer, and a comical snowman to save the realm and discover the power of love.",
-  "year": 2013,
-  "genre": "Animation, Adventure, Comedy",
-  "poster": "frozen.jpg"
-}
+    {
+      "id": "57",
+      "title": "The Dark Knight Rises",
+      "actors": "Christian Bale, Tom Hardy",
+      "description": "Eight years after the Joker’s reign, Batman must come out of retirement to stop the masked terrorist Bane and save Gotham from destruction.",
+      "year": 2012,
+      "genre": "Action, Thriller, Drama",
+      "poster": "the-dark-knight-rises.jpg"
+    },
+    {
+      "id": "58",
+      "title": "Rush Hour 2",
+      "actors": "Jackie Chan, Chris Tucker",
+      "description": "Detectives Lee and Carter reunite for a vacation in Hong Kong, but their plans are interrupted when they uncover a dangerous conspiracy involving counterfeit money and international crime.",
+      "year": 2001,
+      "genre": "Action, Comedy, Crime",
+      "poster": "rush-hour-2.jpg"
+    },
+    {
+      "id": "59",
+      "title": "Deadpool 3",
+      "actors": "Ryan Reynolds, Hugh Jackman",
+      "description": "In an unexpected and chaotic crossover, Deadpool teams up with Wolverine in a multiverse-bending mission that blends Marvel's signature humor, action, and heart.",
+      "year": 2024,
+      "genre": "Action, Comedy, Sci-Fi",
+      "poster": "deadpool-3.jpg"
+    },
+    {
+      "id": "60",
+      "title": "Frozen",
+      "actors": "Idina Menzel, Kristen Bell",
+      "description": "When Queen Elsa accidentally unleashes eternal winter on the kingdom of Arendelle, her sister Anna teams up with a rugged iceman, a loyal reindeer, and a comical snowman to save the realm and discover the power of love.",
+      "year": 2013,
+      "genre": "Animation, Adventure, Comedy",
+      "poster": "frozen.jpg"
+    }
   ],
   "users": [
     {

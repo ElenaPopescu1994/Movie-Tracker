@@ -19,7 +19,7 @@ export default function MovieDetails() {
       .catch(() => {
         setError('Movie not found.');
         setLoading(false);
-        setTimeout(() => navigate('/'), 3000); // redirect după 3 secunde
+        setTimeout(() => navigate('/'), 3000);
       });
   }, [id, navigate]);
 
@@ -27,17 +27,21 @@ export default function MovieDetails() {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="movie-details-container">
-      <img
-        src={`${process.env.PUBLIC_URL}/images/${movie.poster || 'default.jpg'}`}
-        alt={movie.title}
-        className="movie-details-poster"
-      />
-      <h2>{movie.title} ({movie.year})</h2>
-      <p><strong>Genre:</strong> {movie.genre}</p>
-      <p><strong>Actors:</strong> {movie.actors}</p>
-      <p><strong>Description:</strong> {movie.description}</p>
-      <Link to="/">← Back to Home</Link>
+    <div className="movie-details-wrapper">
+      <div className="movie-details-container">
+        <img
+          src={`${process.env.PUBLIC_URL}/images/${movie.poster || 'default.jpg'}`}
+          alt={movie.title}
+          className="movie-details-poster"
+        />
+        <div className="movie-details-text">
+          <h2>{movie.title} ({movie.year})</h2>
+          <p><strong>Genre:</strong> {movie.genre}</p>
+          <p><strong>Actors:</strong> {movie.actors}</p>
+          <p><strong>Description:</strong> {movie.description}</p>
+          <Link to="/">← Back to Home</Link>
+        </div>
+      </div>
     </div>
   );
 }
