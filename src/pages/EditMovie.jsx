@@ -3,7 +3,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { fetchMovieById, updateMovie } from '../services/api';
 import './EditMovie.css';
 
-const genres = ['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi', 'Romance'];
+const genres = [
+  "Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary",
+  "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery",
+  "Romance", "Sci-Fi", "Sport", "Thriller", "War", "Western"
+];
 
 export default function EditMovie() {
   const { id } = useParams();
@@ -17,7 +21,8 @@ export default function EditMovie() {
     setLoading(true);
     fetchMovieById(id)
       .then(movie => {
-        if (!movie.genre) movie.genre = genres[0];
+        if (!movie.genre) movie.genre = [];
+        else if (typeof movie.genre === 'string') movie.genre = [movie.genre];
         setFormData(movie);
         setLoading(false);
       })
@@ -30,6 +35,16 @@ export default function EditMovie() {
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleGenreChange = (e) => {
+    const { value, checked } = e.target;
+    setFormData(prev => {
+      const newGenres = checked
+        ? [...prev.genre, value]
+        : prev.genre.filter(g => g !== value);
+      return { ...prev, genre: newGenres };
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -56,26 +71,53 @@ export default function EditMovie() {
       {formData && (
         <form onSubmit={handleSubmit}>
           <label>Title</label>
-          <input name="title" value={formData.title} onChange={handleChange} required />
+          <input
+            name="title"
+            value={formData.title}
+            onChange={handleChange}
+            required
+          />
 
           <label>Description</label>
-          <textarea name="description" value={formData.description} onChange={handleChange} required />
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
 
           <label>Year</label>
-          <input type="number" name="year" value={formData.year} onChange={handleChange} required />
+          <input
+            type="number"
+            name="year"
+            value={formData.year}
+            onChange={handleChange}
+            required
+          />
 
           <label>Actors</label>
-          <input name="actors" value={formData.actors} onChange={handleChange} placeholder="Actor1, Actor2, ..." />
-
+          <input
+            name="actors"
+            value={formData.actors}
+            onChange={handleChange}
+            placeholder="Actor1, Actor2, ..."
+          />
 
           <label>Genre</label>
-          <select name="genre" value={formData.genre} onChange={handleChange}>
-            {genres.map((g) => (
-              <option key={g} value={g}>
+          <div className="genre-checkboxes">
+            {genres.map(g => (
+              <label key={g} style={{ marginRight: '10px', display: 'inline-block' }}>
+                <input
+                  type="checkbox"
+                  name="genre"
+                  value={g}
+                  checked={formData.genre.includes(g)}
+                  onChange={handleGenreChange}
+                />
                 {g}
-              </option>
+              </label>
             ))}
-          </select>
+          </div>
 
           <button type="submit">Save Changes</button>
         </form>

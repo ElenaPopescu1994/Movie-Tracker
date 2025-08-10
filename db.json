@@ -6,7 +6,10 @@
       "actors": "Jackie Chan, Chris Tucker, Ken Leung",
       "description": "Rush Hour is an action comedy about an unlikely duo: a skilled Hong Kong detective and a laid back Los Angeles cop who team up to rescue a kidnapped diplomat's daughter.",
       "year": 1998,
-      "genre": "Action",
+      "genre": [
+        "Action",
+        "Comedy"
+      ],
       "poster": "rush-hour.jpg"
     },
     {

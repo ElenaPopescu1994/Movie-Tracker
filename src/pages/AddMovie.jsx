@@ -3,7 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { addMovie } from '../services/api';
 import './AddMovie.css';
 
-const genres = ['Action', 'Comedy', 'Drama', 'Horror', 'Sci-Fi', 'Romance'];
+const genres = [
+  "Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary",
+  "Drama", "Family", "Fantasy", "History", "Horror", "Music", "Mystery",
+  "Romance", "Sci-Fi", "Sport", "Thriller", "War", "Western"
+];
 
 export default function AddMovie() {
   const navigate = useNavigate();
@@ -11,7 +15,7 @@ export default function AddMovie() {
     title: '',
     description: '',
     year: '',
-    genre: genres[0],
+    genre: [],  
     actors: '',
   });
 
@@ -19,8 +23,25 @@ export default function AddMovie() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleGenreChange = (e) => {
+    const { value, checked } = e.target;
+    setFormData(prev => {
+      if (checked) {
+        return { ...prev, genre: [...prev.genre, value] };
+      } else {
+        return { ...prev, genre: prev.genre.filter(g => g !== value) };
+      }
+    });
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.genre.length === 0) {
+      alert('Please select at least one genre');
+      return;
+    }
+
     try {
       await addMovie({
         ...formData,
@@ -64,16 +85,28 @@ export default function AddMovie() {
         />
 
         <label>Actors</label>
-        <input name="actors" value={formData.actors} onChange={handleChange} placeholder="Actor1, Actor2, ..." />
+        <input
+          name="actors"
+          value={formData.actors}
+          onChange={handleChange}
+          placeholder="Actor1, Actor2, ..."
+        />
 
         <label>Genre</label>
-        <select name="genre" value={formData.genre} onChange={handleChange}>
-          {genres.map((g) => (
-            <option key={g} value={g}>
+        <div className="genre-checkboxes">
+          {genres.map(g => (
+            <label key={g} style={{ marginRight: '10px', display: 'inline-block' }}>
+              <input
+                type="checkbox"
+                name="genre"
+                value={g}
+                checked={formData.genre.includes(g)}
+                onChange={handleGenreChange}
+              />
               {g}
-            </option>
+            </label>
           ))}
-        </select>
+        </div>
 
         <button type="submit">Add Movie</button>
       </form>
